@@ -2897,15 +2897,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.0018770053, y: 0.9908458, z: -0.13498344, w: -0.00075881626}
-  m_LocalPosition: {x: 475, y: 20.36, z: 1000}
+  m_LocalRotation: {x: 0.0017440098, y: 0.9606393, z: -0.27778378, w: -0.0022938997}
+  m_LocalPosition: {x: 475.1, y: 36.7, z: 1002.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 110167086}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15.515, y: 180.12, z: 0.233}
+  m_LocalEulerAnglesHint: {x: 32.255, y: 180.364, z: 0.313}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2953,13 +2953,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 903344260}
-  offset: {x: 475, y: 20.36, z: 1000}
+  offset: {x: 0, y: 0, z: 0}
   useOffsetValues: 0
   rotateSpeed: 50
-  maxWatchingAngle: 90
-  minWatchingAngle: -60
+  maxWatchingAngle: 0
+  minWatchingAngle: 0
   pivot: {fileID: 110167086}
-  invertY: 0
+  invertY: 1
   spawnedPlayer: {fileID: 903344254}
 --- !u!65 &963194233
 BoxCollider:
@@ -5150,7 +5150,7 @@ TerrainCollider:
   m_GameObject: {fileID: 1435901631}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 1c5a1531c83352b499b9c107b0c496da, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: be5961be4e66e8741a3e766772df02d4, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1435901633
 Terrain:
