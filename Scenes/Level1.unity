@@ -588,7 +588,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!64 &205321394
 MeshCollider:
@@ -686,7 +686,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!64 &213670824
 MeshCollider:
@@ -4720,7 +4720,7 @@ GameObject:
   - component: {fileID: 1280273926}
   - component: {fileID: 1280273925}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4892,6 +4892,7 @@ GameObject:
   - component: {fileID: 1302398929}
   - component: {fileID: 1302398932}
   - component: {fileID: 1302398933}
+  - component: {fileID: 1302398934}
   m_Layer: 9
   m_Name: Labyrinth
   m_TagString: Obstacle
@@ -4989,6 +4990,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &1302398934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302398928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1338743825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5120,6 +5134,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 1169067344}
   restartMenu: {fileID: 1137794443}
   endMenu: {fileID: 509988112}
+  infoMenu: {fileID: 0}
+  dieMenu: {fileID: 0}
   maximumHealth: 3
   currentHealth: 0
   isDead: 0
@@ -5201,7 +5217,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1435901635
 MonoBehaviour:
@@ -5527,7 +5543,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1561969318
 MonoBehaviour:
@@ -5828,7 +5844,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!64 &1706404479
 MeshCollider:
@@ -5975,7 +5991,7 @@ GameObject:
   - component: {fileID: 1727563602}
   - component: {fileID: 1727563601}
   m_Layer: 5
-  m_Name: SoundButton
+  m_Name: SoundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6229,7 +6245,7 @@ GameObject:
   - component: {fileID: 1858251633}
   - component: {fileID: 1858251632}
   m_Layer: 5
-  m_Name: SettingButton
+  m_Name: InfoIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6331,7 +6347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e7b202a64c5c464c98da3960e390015, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 525de5caa6459294a84351c7c0ec8c8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7673,6 +7689,10 @@ PrefabInstance:
     - target: {fileID: 7753080493402736931, guid: 9befdc75f82032b468ee2a160379e36b, type: 3}
       propertyPath: maximumHealth
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753080493402736933, guid: 9befdc75f82032b468ee2a160379e36b, type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 7753080493402736935, guid: 9befdc75f82032b468ee2a160379e36b, type: 3}
       propertyPath: m_RootOrder
