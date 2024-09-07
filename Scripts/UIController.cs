@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject restartMenu;
     public GameObject endMenu;
+    public GameObject infoMenu;
 
     public float maximumHealth = 3f;
     public float currentHealth;
@@ -97,6 +98,16 @@ public class UIController : MonoBehaviour
     {        
         restartMenu.SetActive(true);
         //AudioSource.PlayClipAtPoint(deathSound, transform.position, 3f);        
+    }
+
+    public void ShowInfoMenu()
+    {
+        infoMenu.SetActive(true);
+    }
+
+    public void HideInfoMenu()
+    {
+        infoMenu.SetActive(false);
     }
 
     public void SetUP(int health)
