@@ -77,6 +77,20 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void InfoPause()
+    {
+        if (infoMenu.activeInHierarchy)
+        {
+            infoMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            infoMenu.SetActive(true);
+            Time.timeScale = 0f;    // Every object stops moving.
+        }
+    }
+
     public void ShowStartMenu()
     {
         startMenu.SetActive(true);
@@ -105,6 +119,7 @@ public class UIController : MonoBehaviour
     public void ShowInfoMenu()
     {
         infoMenu.SetActive(true);
+        InfoPause();
     }
 
     public void HideInfoMenu()
