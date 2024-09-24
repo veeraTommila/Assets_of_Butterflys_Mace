@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     public GameObject endMenu;
     public GameObject infoMenu;
     public GameObject dieMenu;
+    public GameObject volumeMenu;
 
     public float maximumHealth = 3f;
     public float currentHealth;
@@ -125,6 +126,16 @@ public class UIController : MonoBehaviour
     public void HideInfoMenu()
     {
         infoMenu.SetActive(false);
+    }
+
+    public void ShowVolumeMenu()
+    { 
+        volumeMenu.SetActive(true);
+    }
+
+    public void HideVolumeMenu()
+    {
+        volumeMenu.SetActive(false);
     }
 
     public void SetUP(int health)
