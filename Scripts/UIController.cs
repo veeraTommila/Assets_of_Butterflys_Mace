@@ -16,7 +16,7 @@ public class UIController : MonoBehaviour
     public GameObject restartMenu;
     public GameObject endMenu;
     public GameObject infoMenu;
-    public GameObject dieMenu;
+    //public GameObject dieMenu;
     public GameObject volumeMenu;
 
     public float maximumHealth = 3f;
@@ -34,7 +34,7 @@ public class UIController : MonoBehaviour
         ShowStartMenu();
         ShowMainMenu();
         playerHealth = player.GetComponent<HealthBar>();
-        
+
     } // End oft Start function.
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
         {
             TogglePause();
         }
-        
+
     } // End oft Update function.
 
     // Public functions to change UI-texts.
@@ -68,12 +68,12 @@ public class UIController : MonoBehaviour
     {
         if (pauseMenu.activeInHierarchy)
         {
-            pauseMenu.SetActive(false);           
+            pauseMenu.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
-            pauseMenu.SetActive(true);            
+            pauseMenu.SetActive(true);
             Time.timeScale = 0f;    // Every object stops moving.
         }
     }
@@ -92,6 +92,20 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void DeathPause()
+    {
+        if (restartMenu.activeInHierarchy)
+        {
+            restartMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            restartMenu.SetActive(true);
+            Time.timeScale = 0f;    // Every object stops moving.
+        }
+    }
+
     public void ShowStartMenu()
     {
         startMenu.SetActive(true);
@@ -103,7 +117,7 @@ public class UIController : MonoBehaviour
     }
     public void ShowMainMenu()
     {
-        mainMenu.SetActive(true);        
+        mainMenu.SetActive(true);
     }
 
     public void HideMainMenu()
@@ -112,8 +126,9 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowRestartMenu()
-    {        
+    {
         restartMenu.SetActive(true);
+        DeathPause();
         //AudioSource.PlayClipAtPoint(deathSound, transform.position, 3f);        
     }
 
@@ -129,7 +144,7 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowVolumeMenu()
-    { 
+    {
         volumeMenu.SetActive(true);
     }
 
@@ -152,7 +167,7 @@ public class UIController : MonoBehaviour
     public void ShowEndMenu(int score)
     {
         endMenu.SetActive(true);
-    }    
+    }
 
     public void LoadLevel1()
     {
