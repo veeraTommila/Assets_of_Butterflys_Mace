@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18204188, g: 0.22773254, b: 0.30739918, a: 1}
+  m_IndirectSpecularColor: {r: 0.44890505, g: 0.4989736, b: 0.57570577, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -819,6 +819,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 1303869024}
   restartMenu: {fileID: 739539585}
   endMenu: {fileID: 632311716}
+  infoMenu: {fileID: 0}
+  volumeMenu: {fileID: 0}
   maximumHealth: 3
   currentHealth: 0
   isDead: 0
@@ -6401,7 +6403,7 @@ GameObject:
   - component: {fileID: 1859603977}
   - component: {fileID: 1859603976}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6425,7 +6427,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -49, y: -38}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859603976
 MonoBehaviour:
@@ -6553,7 +6555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a50ee5769195e3428f541dcc7a07625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   Enemy: {fileID: 4914712317457365205, guid: fcb4cf862ad01e742a98623309a4414c, type: 3}
   threshold: 1
   area: {fileID: 1904025999}
