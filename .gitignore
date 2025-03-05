@@ -382,3 +382,5 @@ Textures/NewBrush 2.brush
 Textures/NewBrush 2.brush
 New Terrain 11.asset
 New Terrain 12.asset
+*.asset
+PolygonPi/FenceLayout/Example/RectangledBushFence.prefab
