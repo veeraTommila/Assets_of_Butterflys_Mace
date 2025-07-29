@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 // THIS IS THE PLAYER CONTROLLING CODE
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;   
+    public float moveSpeed;
     //public float jumpForce;
     public CharacterController controller;
 
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private GameObject Player;
     public GameObject Enemy;
     public Transform respawnpoint;
+    int isFlyingHash;
 
 
     public float maximumHealth = 3;
@@ -44,11 +45,11 @@ public class PlayerController : MonoBehaviour
     public GameObject projectile;
     private float time;
     public float shootingCooldownTime;
-    
+
     public GameObject RestartMenu;
 
     public AudioClip damageSound;
-    public AudioClip deathSound;
+    public AudioSource deathSound;
     //public AudioSource audioSource;
 
     // public float movingSpeed;
@@ -63,13 +64,16 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CharacterAnimator = GetComponent<Animator>();
+        isFlyingHash = Animator.StringToHash("isFlying");
+
         PlayerDie = false;
         Enemy = GameObject.FindWithTag("Muzzle"); // Sets the variable to the GameObject that has a "Projectile" tag.       
 
         controller = GetComponent<CharacterController>();
         CharacterRigid = GetComponent<Rigidbody>();
-        originalPosition = transform.position;        
-        
+        originalPosition = transform.position;
+
         currentHealth = maximumHealth;
         healthBar.SetMaxHealth(maximumHealth);
 
@@ -81,6 +85,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        bool isFlying = CharacterAnimator.GetBool("isFlying");
+        bool forwardPressed = Input.GetKey("w");
+
+        if (!isFlying && forwardPressed)
+        {
+            CharacterAnimator.SetBool("isFlying", true);
+        }
+
+        if (isFlying && forwardPressed) {
+            CharacterAnimator.SetBool("isFlying", false);
+        }
+
         if (time <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -88,22 +104,22 @@ public class PlayerController : MonoBehaviour
                 GameObject proje = Instantiate(projectile, muzzle.position, muzzle.rotation);
                 proje.GetComponent<Projectile>().shooterTag = tag;
                 time = shootingCooldownTime;
-            }            
+            }
         }
-        /*
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
             AudioSource.PlayClipAtPoint(damageSound, transform.position, 1f);
-        }*/
+        }
 
-        
+
 
         /*if (PlayerDie == true)
         {
             AudioSource.PlayClipAtPoint(deathSound, transform.position, 1f);
         }*/
-        
+
     }
 
     void FixedUpdate()
@@ -147,7 +163,7 @@ public class PlayerController : MonoBehaviour
         }
     } // End of Update function.
 
-    
+
     public void TakeDamage(float damage)
     {
         AudioSource.PlayClipAtPoint(damageSound, transform.position, 1f);
@@ -155,7 +171,7 @@ public class PlayerController : MonoBehaviour
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
-        {                        
+        {
             currentHealth = 0;
             //Character dies.
             //The death animation is played.
@@ -163,7 +179,7 @@ public class PlayerController : MonoBehaviour
             // The player won't move.
             GetComponent<PlayerController>().enabled = false;
             Debug.Log("Player is dead.");
-            //AudioSource.PlayClipAtPoint(deathSound, transform.position, 3f);
+            //AudioSource.PlayClipAtPoint(deathSound, transform.position, 1f);
             //userInterface.ShowRestartMenu();
             PlayerDie = true;
         }
@@ -172,16 +188,15 @@ public class PlayerController : MonoBehaviour
         {
             //Play Game Over on screen.
             RestartMenu.gameObject.SetActive(true);
-            AudioSource.PlayClipAtPoint(deathSound, transform.position, 3f);
+            //deathSound.Play();
             // Reload the whole scene and reset all the gameobjects.
             //Scene currentScene = SceneManager.GetActiveScene();
             //SceneManager.LoadScene(currentScene.name);
             // To set the respawn place of the player.
-            Player.transform.position = respawnpoint.position;            
+            Player.transform.position = respawnpoint.position;
         }
-        
-        RestartMenu.gameObject.SetActive(false);   
-        
+        RestartMenu.gameObject.SetActive(false);
+
     }
 
     public void Heal(float damage)
@@ -191,9 +206,9 @@ public class PlayerController : MonoBehaviour
         if (currentHealth > maximumHealth)
         {
             currentHealth = maximumHealth;
-        }        
+        }
     }
 
-    
+
 
 }
