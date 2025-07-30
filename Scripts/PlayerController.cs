@@ -64,9 +64,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CharacterAnimator = GetComponent<Animator>();
-        isFlyingHash = Animator.StringToHash("isFlying");
-
         PlayerDie = false;
         Enemy = GameObject.FindWithTag("Muzzle"); // Sets the variable to the GameObject that has a "Projectile" tag.       
 
