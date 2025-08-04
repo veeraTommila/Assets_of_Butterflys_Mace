@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlaayerControls : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlaayerControls : MonoBehaviour
     private Vector3 moveDirection;
     public float gravityScale;
     private Vector3 originalPosition;
+    private Vector3 currentPosition;
 
     public Animator CharacterAnimator;
     public Transform pivot;
@@ -33,14 +35,14 @@ public class PlaayerControls : MonoBehaviour
     private Transform turret;
     private float turretTurningSpeed;
     private Transform muzzle;
-    public GameObject projectile;
+    //public GameObject projectile;
     private float time;
     private float shootingCooldownTime;
 
     public GameObject RestartMenu;
 
     public AudioClip damageSound;
-    public AudioClip deathSound;
+    public AudioSource deathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -59,27 +61,11 @@ public class PlaayerControls : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
         // A sanity check to make sure the player is not dead.
         CharacterAnimator.SetBool("PlayerDies", false);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-         Move around. Set speed of axes X, Y and Z.
-        //X = Horizontal (vasemmalle ja oikealle), Z = Vertical (eteen ja taakse) sekä Y = ylös ja alas.
-        theRB.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, theRB.velocity.y, Input.GetAxis("Vertical") * moveSpeed);
-
-        //Onko Unityssä hypylle tarkoitettua näppäintä painettu.
-        if (Input.GetButtonDown("Jump"))
-        {
-            //Muutetaan Y-akselin arvoa.
-            theRB.velocity = new Vector3(theRB.velocity.x, jumpForce, theRB.velocity.z);
-        }*/
-
-
-        //moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y, Input.GetAxis("Vertical") * moveSpeed);
-
         //Pelinappulan liikkeen kontrollointi on helpompaa.
         float yStore = moveDirection.y;
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
@@ -87,24 +73,23 @@ public class PlaayerControls : MonoBehaviour
         moveDirection.y = yStore;
 
 
-        //Onko Unityssä hypylle tarkoitettua näppäintä painettu.
+        // Has the jump key been pressed in Unity?
         if (controller.isGrounded)
         {
             moveDirection.y = 0f;
             if (Input.GetButtonDown("Jump"))
             {
-                //Muutetaan Y-akselin arvoa.
+                // Let's change the value of the Y-axis.
                 moveDirection.y = jumpForce;
             }
         }
 
-
         moveDirection.y = moveDirection.y + (Physics.gravity.y * Time.deltaTime * gravityScale);
 
-        //Sovelletaan moveDirectionia Character Controlleriin.
+        // Apply moveDirection to Character Controller.
         controller.Move(moveDirection * Time.deltaTime);
 
-        //Pelinappula kääntyy kameran katsoman suunnan mukaan.
+        // The game character rotates according to the direction the camera is looking.
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             transform.rotation = Quaternion.Euler(0f, pivot.rotation.eulerAngles.y, 0f);
@@ -114,6 +99,12 @@ public class PlaayerControls : MonoBehaviour
 
         CharacterAnimator.SetBool("isGrounded", controller.isGrounded);
         CharacterAnimator.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(1);
+            AudioSource.PlayClipAtPoint(damageSound, transform.position, 1f);
+        }
     }
 
     void FixedUpdate()
@@ -182,8 +173,9 @@ public class PlaayerControls : MonoBehaviour
 
         if (PlayerDie == true)
         {
-            //Play Game Over on screen.
+            // Play Game Over on screen.
             RestartMenu.gameObject.SetActive(true);
+            Debug.Log("YOU DIED! This will tell that the game over screen will be played now.");
             //deathSound.Play();
             // Reload the whole scene and reset all the gameobjects.
             //Scene currentScene = SceneManager.GetActiveScene();
@@ -191,7 +183,7 @@ public class PlaayerControls : MonoBehaviour
             // To set the respawn place of the player.
             Player.transform.position = respawnpoint.position;
         }
-        RestartMenu.gameObject.SetActive(false);
+        //RestartMenu.gameObject.SetActive(false);
 
     }
 
