@@ -64,6 +64,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CharacterAnimator = GetComponent<Animator>();
+        isFlyingHash = Animator.StringToHash("isFlying");
+
         PlayerDie = false;
         Enemy = GameObject.FindWithTag("Muzzle"); // Sets the variable to the GameObject that has a "Projectile" tag.       
 
@@ -90,7 +93,8 @@ public class PlayerController : MonoBehaviour
             CharacterAnimator.SetBool("isFlying", true);
         }
 
-        if (isFlying && forwardPressed) {
+        if (isFlying && forwardPressed)
+        {
             CharacterAnimator.SetBool("isFlying", false);
         }
 
@@ -205,7 +209,4 @@ public class PlayerController : MonoBehaviour
             currentHealth = maximumHealth;
         }
     }
-
-
-
 }
