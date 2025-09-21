@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1059992936153771423}
   - component: {fileID: 666357410482408434}
   - component: {fileID: 666357410482408429}
+  - component: {fileID: 8850317584792572679}
   m_Layer: 0
   m_Name: Enemy_swatter
   m_TagString: Untagged
@@ -69,6 +70,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8850317584792572679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431792892356212517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f766ea29337544db98951f68139927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 5257381926933005341, guid: fcb4cf862ad01e742a98623309a4414c, type: 3}
+  EnemyRigid: {fileID: 4740770373299267362, guid: fcb4cf862ad01e742a98623309a4414c, type: 3}
+  Player: {fileID: 4772926035082820912, guid: 3952a082f26621445ba12a27eeafd492, type: 3}
+  playerHealth: {fileID: 0}
+  damage: 1
+  EnemyWalkingSpeed: 5
+  EnemyRunningSpeed: 10
+  EnemyHittingSpeed: 6
+  EnemyDistance: 10000
+  EnemyAttackDistance: 300
+  EnemyHittingDistance: 5
+  EnemyHittingRate: 2
+  PlayerSighted: 0
+  RunAtPlayer: 0
+  EnemyShoot: 0
+  HittingAttack: 0
+  EnemyDying: 0
+  EnemyDeathDuration: 10
+  HittingTimer: 0
+  turret: {fileID: 0}
+  turretTurningSpeed: 0
+  muzzleBone: {fileID: 0}
+  projectile: {fileID: 0}
+  shootingCooldownTime: 0
+  damageDelay: 1
+  muzzleBones: []
+  respawnpoint: {fileID: 0}
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1290107951564722734
 GameObject:
   m_ObjectHideFlags: 0
