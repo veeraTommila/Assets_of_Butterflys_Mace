@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 6358474569887510305}
   - component: {fileID: 6358474569887510319}
   - component: {fileID: -2246435777174180731}
-  - component: {fileID: -8334241832006185782}
+  - component: {fileID: 2844873979211224379}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Projectile
+  m_TagString: Muzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,14 +115,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   publicTime: 0
-  damageRadius: 2
-  damage: 0.03
+  damageRadius: 0
+  damage: 0
   shooterTag: 
   explotion: {fileID: 0}
   playerHealth: {fileID: 0}
-  Player: {fileID: 7753080493402737117, guid: 9befdc75f82032b468ee2a160379e36b, type: 3}
---- !u!65 &-8334241832006185782
-BoxCollider:
+  Player: {fileID: 4772926035082820912, guid: 3952a082f26621445ba12a27eeafd492, type: 3}
+--- !u!135 &2844873979211224379
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,5 +132,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 5}
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
