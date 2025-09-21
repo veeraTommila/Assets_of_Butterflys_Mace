@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4740770372228653906}
   m_Layer: 0
   m_Name: Swatter
-  m_TagString: Muzzle
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95498769094046409}
   m_LocalRotation: {x: -0.5000001, y: -0.49999997, z: 0.49999988, w: 0.50000006}
-  m_LocalPosition: {x: -2.55, y: 8.3812, z: -3.816}
-  m_LocalScale: {x: 99.791214, y: 202.6461, z: 99.30463}
+  m_LocalPosition: {x: -2.55, y: 8.533, z: -3.884}
+  m_LocalScale: {x: 101.738686, y: 202.6461, z: 99.30463}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5728368155143185007}
@@ -103,7 +103,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95498769094046409}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.047632348, y: 0.0004663316, z: 0.012336402}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3771424444420605730}
   m_Layer: 0
   m_Name: Bone.009
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 9200425153916858067}
   m_Layer: 0
   m_Name: Bone.002
-  m_TagString: Muzzle
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1417481509311795613}
   m_Layer: 0
   m_Name: Bone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 3733366642312475377}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 5779278389640222722}
   m_Layer: 0
   m_Name: Muzzle4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 3031103115830303701}
   m_Layer: 0
   m_Name: Bone.004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 6625740011414962422}
   m_Layer: 0
   m_Name: Bone.006
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 4740770373299267390}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4914712317457365205}
   m_LocalRotation: {x: -0.008239528, y: -0, z: -0, w: 0.9999661}
-  m_LocalPosition: {x: 477.6002, y: 7.7798157, z: 854.6}
+  m_LocalPosition: {x: 477.6002, y: 7.7798157, z: 854.616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -469,10 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f766ea29337544db98951f68139927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyAnimator: {fileID: 0}
-  EnemyRigid: {fileID: 0}
-  Player: {fileID: 0}
-  playerHealth: {fileID: 0}
+  EnemyAnimator: {fileID: 5257381926933005341}
+  EnemyRigid: {fileID: 4740770373299267362}
+  Player: {fileID: 4772926035082820912, guid: 3952a082f26621445ba12a27eeafd492, type: 3}
+  playerHealth: {fileID: 7753080493402736931, guid: 9befdc75f82032b468ee2a160379e36b, type: 3}
   damage: 0
   EnemyWalkingSpeed: 2
   EnemyRunningSpeed: 3
@@ -493,7 +493,7 @@ MonoBehaviour:
   muzzleBone: {fileID: 9200425153916858067}
   projectile: {fileID: 6358474569887510306, guid: d6abf7b8dc0c94142b90de2f81c45b58, type: 3}
   shootingCooldownTime: 0
-  damageDelay: 1
+  damageDelay: 5
   muzzleBones:
   - {fileID: 726626498191527438}
   - {fileID: 3307339554587627751}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 8027819780976672022}
   m_Layer: 0
   m_Name: Bone.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 8586056785516045738}
   m_Layer: 0
   m_Name: Muzzle3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 3872042653647656860}
   m_Layer: 0
   m_Name: Bone.007
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 1980511356193441331}
   m_Layer: 0
   m_Name: Muzzle1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 9000626479965355670}
   m_Layer: 0
   m_Name: Bone.005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 2539820816337411760}
   m_Layer: 0
   m_Name: Bone.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 914246130783577222}
   m_Layer: 0
   m_Name: Muzzle2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
