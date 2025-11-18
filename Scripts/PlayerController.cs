@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Animator CharacterAnimator; // An animator reference.
     public Transform pivot;
     public float rotateSpeed;
-    private Rigidbody CharacterRigid;
+    private Rigidbody theRB;
     private GameObject Player;
     public GameObject Enemy;
     public Transform respawnpoint;
@@ -64,14 +64,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CharacterAnimator = GetComponent<Animator>();
-        isFlyingHash = Animator.StringToHash("isFlying");
-
         PlayerDie = false;
-        Enemy = GameObject.FindWithTag("Muzzle"); // Sets the variable to the GameObject that has a "Projectile" tag.       
+        Enemy = GameObject.FindWithTag("Muzzle");
 
         controller = GetComponent<CharacterController>();
-        CharacterRigid = GetComponent<Rigidbody>();
+        theRB = GetComponent<Rigidbody>();
         originalPosition = transform.position;
 
         currentHealth = maximumHealth;
@@ -79,7 +76,6 @@ public class PlayerController : MonoBehaviour
 
         mainCam = Camera.main;
         floorMask = LayerMask.GetMask("Floor");
-        // A sanity check to make sure the player is not dead.
         CharacterAnimator.SetBool("PlayerDies", false);
     }
 
@@ -128,8 +124,8 @@ public class PlayerController : MonoBehaviour
         Vector3 pos = transform.position;
         pos.y = 0;
         transform.position = pos;
-        CharacterRigid.MovePosition(pos);
-        CharacterRigid.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        theRB.MovePosition(pos);
+        theRB.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
 
         // The movement of the player object will be easier.
         float yStore = moveDirection.y;
